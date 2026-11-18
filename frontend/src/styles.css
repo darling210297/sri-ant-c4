@@ -1,0 +1,29 @@
+* { box-sizing: border-box; }
+body { margin: 0; font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif; background: #f4f6f9; color: #1d2433; }
+main { max-width: 760px; margin: 0 auto; padding: 24px 16px 64px; }
+header h1 { margin: 0 0 4px; font-size: 1.6rem; }
+header p { margin: 0 0 20px; color: #5b6475; }
+.card { background: #fff; border: 1px solid #e3e7ee; border-radius: 10px; padding: 20px; margin-bottom: 16px; }
+.card h2 { margin: 0 0 12px; font-size: 1.15rem; }
+.card h3 { margin: 20px 0 8px; font-size: 1rem; }
+form { display: grid; gap: 12px; }
+form.inline { display: flex; gap: 8px; }
+label { display: grid; gap: 4px; font-weight: 600; font-size: .9rem; }
+input { padding: 10px 12px; border: 1px solid #c9d0db; border-radius: 6px; font-size: 1rem; }
+input:focus { outline: 2px solid #2f6fed55; border-color: #2f6fed; }
+button { padding: 10px 16px; background: #2f6fed; color: #fff; border: 0; border-radius: 6px; font-size: 1rem; cursor: pointer; }
+button:disabled { opacity: .6; cursor: wait; }
+.campo-error { color: #b42318; font-weight: 400; font-size: .85rem; }
+.error { margin-top: 12px; padding: 12px; background: #fef3f2; border: 1px solid #fecdca; border-radius: 6px; color: #912018; }
+.error ul { margin: 6px 0 0; padding-left: 18px; }
+.origen { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-bottom: 12px; color: #5b6475; }
+.badge { padding: 2px 8px; border-radius: 999px; font-size: .8rem; font-weight: 600; }
+.badge.ok { background: #ecfdf3; color: #067647; }
+.badge.info { background: #eff4ff; color: #1849a9; }
+.badge.warn { background: #fffaeb; color: #b54708; }
+.aviso { width: 100%; padding: 10px; background: #fffaeb; border: 1px solid #fedf89; border-radius: 6px; color: #93370d; }
+.campos { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 10px 16px; margin: 0; }
+.campos dt { font-size: .78rem; color: #5b6475; text-transform: uppercase; letter-spacing: .02em; }
+.campos dd { margin: 2px 0 0; font-weight: 500; }
+.puntos { display: flex; align-items: baseline; gap: 10px; margin-bottom: 12px; }
+.puntos .numero { font-size: 2.6rem; font-weight: 700; color: #2f6fed; }

@@ -1,0 +1,44 @@
+server:
+  port: ${PORT:8080}
+
+spring:
+  application:
+    name: sri-ant-backend
+  data:
+    redis:
+      # Caché cloud: Upstash / Redis Cloud / Azure Cache. Ej: rediss://default:<password>@<host>:6379
+      url: ${REDIS_URL:redis://localhost:6379}
+      timeout: 2s
+      connect-timeout: 2s
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+
+app:
+  cors:
+    allowed-origins: ${CORS_ORIGINS:http://localhost:5173}
+  http:
+    connect-timeout-ms: 4000
+    read-timeout-ms: 8000
+  sri:
+    base-url: https://srienlinea.sri.gob.ec
+    existe-path: /sri-catastro-sujeto-servicio-internet/rest/ConsolidadoContribuyente/existePorNumeroRuc
+    obtener-path: /sri-catastro-sujeto-servicio-internet/rest/ConsolidadoContribuyente/obtenerPorNumerosRuc
+    vehiculo-path: /sri-matriculacion-vehicular-recaudacion-servicio-internet/rest/BaseVehiculo/obtenerPorNumeroPlacaOPorNumeroCampvOPorNumeroCpn
+  ant:
+    base-url: https://consultaweb.ant.gob.ec
+    citaciones-path: /PortalWEB/paginas/clientes/clp_grid_citaciones.jsp
+  # Tiempos de vida (TTL) - justificación en docs/cache.md
+  cache:
+    contribuyente:
+      fresh: PT24H     # datos tributarios cambian rara vez
+      stale: P7D       # último dato bueno disponible si el SRI cae
+    vehiculo:
+      fresh: PT12H     # matrícula/propietario cambian con poca frecuencia
+      stale: P7D
+    puntos-licencia:
+      fresh: PT1H      # una citación nueva puede restar puntos el mismo día
+      stale: P3D       # la ANT tiene baja disponibilidad: servir el último dato bueno, avisando
